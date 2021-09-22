@@ -58,7 +58,7 @@ to quickly create a Cobra application.`,
 			os.Exit(1)
 		}
 
-		if packageName != "" {
+		if packageName == "" {
 			packageName = validateCmdName(args[0])
 		}
 		os.Chdir(appName)
@@ -110,6 +110,7 @@ to quickly create a Cobra application.`,
 		 }
 
 		 if output, err := exec.Command("go", "mod", "init", packageName).Output(); err != nil {
+			 print("new error");
 			 cobra.CheckErr(err.Error())
 		 } else {
 			 fmt.Println(output);
